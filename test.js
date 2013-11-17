@@ -31,13 +31,13 @@ describe('jshint-stylish', function () {
 		var _log = process.stdout.write;
 
 		process.stdout.write = function (str) {
-			if (/line 8   col 1   'describe' is not defined/ig.test(chalk.stripColor(str || ''))) {
+			if ((str || '').contains('\x1b[33m')) {
 				ret = true;
 			}
 		}
 
 		jshint({
-			args: ['testfixture.js'],
+			args: ['testfixture_noproblem.js'],
 			reporter: reporter
 		});
 

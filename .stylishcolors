@@ -3,5 +3,5 @@
     "reason": "blue",
     "verbose": "gray",
     "error": "red",
-    "noproblem": "green"
+    "noproblem": "yellow"
 }

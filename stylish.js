@@ -16,20 +16,16 @@ module.exports = {
 		
 		var colors = {};
 		if(fs.existsSync(path.resolve('.stylishcolors'))) {
-			var config = fs.readFileSync('.stylishcolors', { encoding: 'utf8' });
-			console.log(config);
-			colors = JSON.parse(config);
-		}
-		else {
-			console.log('Couldn\'t find .stylishcolors in ' + path.resolve('.stylishcolors'));
+			var rc = fs.readFileSync('.stylishcolors', { encoding: 'utf8' });
+			colors = JSON.parse(rc);
 		}
 			
 		colors = extend({
-			"meta": "gray",
-			"reason": "blue",
-			"verbose": "gray",
-			"error": "red",
-			"noproblem": "green"
+			'meta': 'gray',
+			'reason': 'blue',
+			'verbose': 'gray',
+			'error': 'red',
+			'noproblem': 'green'
 		}, colors);
 
 		ret += table(result.map(function (el, i) {
