@@ -7,15 +7,15 @@
     "reporter",
     "lint",
     "validate",
-    "stylish",,
-    "elegant"
+    "stylish",
+    "elegant",
     "stylish-ex"
   ],
   "homepage": "https://github.com/karl-sjogren/jshint-stylish-ex",
   "bugs": "https://github.com/karl-sjogren/jshint-stylish-ex/issues",
   "license": "MIT",
   "author": {
-    "name": "Karl-Johan Sjögren",
+    "name": "Karl-Johan SjÃ¶gren",
     "email": "karl.sjogren@gmail.com",
     "url": "https://github.com/karl-sjogren/jshint-stylish-ex"
   },
