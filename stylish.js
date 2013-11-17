@@ -16,7 +16,7 @@ module.exports = {
 		
 		var colors = {};
 		if(fs.existsSync(path.resolve('.stylishcolors'))) {
-			var config = fs.readFileSync('.stylishcolors', { encoding: 'utf-8' });
+			var config = fs.readFileSync('.stylishcolors', { encoding: 'utf8' });
 			console.log(config);
 			colors = JSON.parse(config);
 		}
