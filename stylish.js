@@ -1,6 +1,9 @@
 'use strict';
 var chalk = require('chalk');
 var table = require('text-table');
+var extend = require('util-extend');
+var fs = require('fs');
+var path = require('path');
 
 module.exports = {
 	reporter: function (result, config, options) {
@@ -10,14 +13,32 @@ module.exports = {
 		var prevfile;
 
 		options = options || {};
+		
+		var colors = {};
+		if(fs.existsSync(path.resolve('.stylishcolors'))) {
+			var config = fs.readFileSync('.stylishcolors', { encoding: 'utf-8' });
+			console.log(config);
+			colors = JSON.parse(config);
+		}
+		else {
+			console.log('Couldn\'t find .stylishcolors in ' + path.resolve('.stylishcolors'));
+		}
+			
+		colors = extend({
+			"meta": "gray",
+			"reason": "blue",
+			"verbose": "gray",
+			"error": "red",
+			"noproblem": "green"
+		}, colors);
 
 		ret += table(result.map(function (el, i) {
 			var err = el.error;
 			var line = [
 				'',
-				chalk.gray('line ' + err.line),
-				chalk.gray('col ' + err.character),
-				chalk.magenta(err.reason)
+				chalk[colors.meta]('line ' + err.line),
+				chalk[colors.meta]('col ' + err.character),
+				chalk[colors.reason](err.reason)
 			];
 
 			if (el.file !== prevfile) {
@@ -25,7 +46,7 @@ module.exports = {
 			}
 
 			if (options.verbose) {
-				line.push(chalk.gray('(' + err.code + ')'));
+				line.push(chalk[colors.verbose]('(' + err.code + ')'));
 			}
 
 			prevfile = el.file;
@@ -36,9 +57,9 @@ module.exports = {
 		}).join('\n') + '\n\n';
 
 		if (total > 0) {
-			ret += chalk.red.bold('✖ ' + total + ' problem' + (total === 1 ? '' : 's'));
+			ret += chalk[colors.error].bold('✖ ' + total + ' problem' + (total === 1 ? '' : 's'));
 		} else {
-			ret += chalk.green.bold('✔ No problems');
+			ret += chalk[colors.noproblem].bold('✔ No problems');
 			ret = '\n' + ret.trim();
 		}
 

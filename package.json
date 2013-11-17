@@ -1,22 +1,23 @@
 {
-  "name": "jshint-stylish",
-  "version": "0.1.3",
-  "description": "Stylish reporter for JSHint",
+  "name": "jshint-stylish-ex",
+  "version": "0.2.0",
+  "description": "Stylish reporter for JSHint with styling options",
   "keywords": [
     "jshint",
     "reporter",
     "lint",
     "validate",
-    "stylish",
+    "stylish",,
     "elegant"
+    "stylish-ex"
   ],
-  "homepage": "https://github.com/sindresorhus/jshint-stylish",
-  "bugs": "https://github.com/sindresorhus/jshint-stylish/issues",
+  "homepage": "https://github.com/karl-sjogren/jshint-stylish-ex",
+  "bugs": "https://github.com/karl-sjogren/jshint-stylish-ex/issues",
   "license": "MIT",
   "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "http://sindresorhus.com"
+    "name": "Karl-Johan Sjögren",
+    "email": "karl.sjogren@gmail.com",
+    "url": "https://github.com/karl-sjogren/jshint-stylish-ex"
   },
   "files": [
     "index.js",
@@ -24,14 +25,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/sindresorhus/jshint-stylish.git"
+    "url": "git://github.com/karl-sjogren/jshint-stylish-ex.git"
   },
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
     "chalk": "~0.2.1",
-    "text-table": "~0.2.0"
+    "text-table": "~0.2.0",
+    "util-extend": "~1.0.1"
   },
   "devDependencies": {
     "mocha": "~1.13.0",

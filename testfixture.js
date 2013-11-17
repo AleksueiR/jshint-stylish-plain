@@ -17,27 +17,7 @@ describe('jshint-stylish', function () {
 		}
 
 		jshint({
-			args: ['testfixture.js'],
-			reporter: reporter
-		});
-
-		process.stdout.write = _log;
-
-		assert(ret);
-	});
-
-	it('should use customized colors', function () {
-		var ret = false;
-		var _log = process.stdout.write;
-
-		process.stdout.write = function (str) {
-			if (/line 8   col 1   'describe' is not defined/ig.test(chalk.stripColor(str || ''))) {
-				ret = true;
-			}
-		}
-
-		jshint({
-			args: ['testfixture.js'],
+			args: ['test.js'],
 			reporter: reporter
 		});
 
