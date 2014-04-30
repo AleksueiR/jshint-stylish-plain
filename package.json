@@ -1,6 +1,6 @@
 {
-  "name": "jshint-stylish-ex",
-  "version": "0.2.0",
+  "name": "jshint-stylish-plain",
+  "version": "0.1.0",
   "description": "Stylish reporter for JSHint with styling options",
   "keywords": [
     "jshint",
@@ -11,13 +11,13 @@
     "elegant",
     "stylish-ex"
   ],
-  "homepage": "https://github.com/karl-sjogren/jshint-stylish-ex",
-  "bugs": "https://github.com/karl-sjogren/jshint-stylish-ex/issues",
+  "homepage": "https://github.com/karl-sjogren/jshint-stylish-plain",
+  "bugs": "https://github.com/karl-sjogren/jshint-stylish-plain/issues",
   "license": "MIT",
   "author": {
     "name": "Karl-Johan Sjögren",
     "email": "karl.sjogren@gmail.com",
-    "url": "https://github.com/karl-sjogren/jshint-stylish-ex"
+    "url": "https://github.com/karl-sjogren/jshint-stylish-plain"
   },
   "files": [
     "index.js",
@@ -25,7 +25,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/karl-sjogren/jshint-stylish-ex.git"
+    "url": "git://github.com/karl-sjogren/jshint-stylish-plain.git"
   },
   "scripts": {
     "test": "mocha"
