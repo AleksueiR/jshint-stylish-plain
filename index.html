@@ -31,37 +31,73 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h1>
+<a name="jshint-stylish-" class="anchor" href="#jshint-stylish-"><span class="octicon octicon-link"></span></a>jshint-stylish <a href="http://travis-ci.org/sindresorhus/jshint-stylish"><img src="https://secure.travis-ci.org/karl-sjogren/jshint-stylish-ex.png?branch=master" alt="Build Status"></a>
+</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<blockquote>
+<p>Stylish reporter for <a href="https://github.com/jshint/jshint">JSHint</a></p>
+</blockquote>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p><img src="screenshot.png" alt="screenshot"></p>
+
+<p>Compared to the default reporter:</p>
+
+<p><img src="screenshot-default-formatter.png" alt="default reporter"></p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<p>Install with <a href="https://npmjs.org/package/jshint-stylish">npm</a>: <code>npm install --save-dev jshint-stylish-ex</code></p>
+
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting started</h2>
+
+<p>Use it with:</p>
+
+<h4>
+<a name="jshint-cli" class="anchor" href="#jshint-cli"><span class="octicon octicon-link"></span></a>JSHint CLI</h4>
+
+<pre><code>jshint --reporter node_modules/jshint-stylish-ex/stylish.js file.js
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h4>
+<a name="grunt-contrib-jshint" class="anchor" href="#grunt-contrib-jshint"><span class="octicon octicon-link"></span></a><a href="https://github.com/gruntjs/grunt-contrib-jshint">grunt-contrib-jshint</a>
+</h4>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<div class="highlight highlight-js"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+    <span class="nx">jshint</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">reporter</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jshint-stylish-ex'</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="p">[</span><span class="s1">'file.js'</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">});</span>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-contrib-jshint'</span><span class="p">);</span>
+<span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">'default'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'jshint'</span><span class="p">]);</span>
+</pre></div>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<h2>
+<a name="configuring-colors" class="anchor" href="#configuring-colors"><span class="octicon octicon-link"></span></a>Configuring colors</h2>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>In this ex edition you can put an optional <code>.stylishcolors</code>-file in the root of your project to modify the output colors of the reporter.</p>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<div class="highlight highlight-js"><pre><span class="p">{</span>
+    <span class="s2">"meta"</span><span class="o">:</span> <span class="s2">"gray"</span><span class="p">,</span>
+    <span class="s2">"reason"</span><span class="o">:</span> <span class="s2">"blue"</span><span class="p">,</span>
+    <span class="s2">"verbose"</span><span class="o">:</span> <span class="s2">"gray"</span><span class="p">,</span>
+    <span class="s2">"error"</span><span class="o">:</span> <span class="s2">"red"</span><span class="p">,</span>
+    <span class="s2">"noproblem"</span><span class="o">:</span> <span class="s2">"green"</span>
+<span class="p">}</span>
+</pre></div>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>The colors available are those from <a href="https://github.com/sindresorhus/chalk">chalk</a>, specificly <code>black</code>, <code>red</code>, <code>green</code>, <code>yellow</code>, <code>blue</code>, <code>magenta</code>, <code>cyan</code>, <code>white</code> and <code>gray</code>. There is no support for backgroundcolors or chaning underlines etc.</p>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>MIT © <a href="http://sindresorhus.com">Sindre Sorhus</a>, ex-edition by Karl-Johan Sjögren</p>
       </section>
     </div>
 
