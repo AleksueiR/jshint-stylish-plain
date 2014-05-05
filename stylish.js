@@ -53,7 +53,7 @@ module.exports = {
 
             return line;
         })).split('\n').map(function(el, i) {
-            return headers[i] ? '\n' + colors ? chalk.underline(headers[i]) : headers[i] + '\n' + el : el;
+            return headers[i] ? '\n' + (colors ? chalk.underline(headers[i]) : headers[i]) + '\n' + el : el;
         }).join('\n') + '\n\n';
 
         if (total > 0) {
